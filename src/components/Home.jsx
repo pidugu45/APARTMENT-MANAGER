@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 export const Home = () => {
     const [flats, setFlats] = useState([]);
+   // const [nbr,setNbr]=useState(0)
     const navigate = useNavigate()
   useEffect(() => {
     getFlats();
-    console.log(flats);
+   
   }, []);
   function getFlats() {
     axios
@@ -19,9 +20,22 @@ export const Home = () => {
         console.log("flats not fetched");
       });
   }
-
-  return (
-    <>
+//     const getFlat = (id) => {
+//         let  len ;
+//     axios
+//       .get(`https://apartment-manager-system.herokuapp.com/residents/${id}`)
+//         .then((res) => {
+//             //setNbr(res.data.length)
+//             len= res.data.length
+//             //console.log(res.data.length)
+//         });
+//         console.log("len",len)
+//         return len;   
+//   };
+    return (
+        
+        <>
+           
       <h1>Home Page</h1>
       <table>
         <thead>
@@ -36,15 +50,19 @@ export const Home = () => {
               <tbody>
                   {
                       flats.map((e) => {
-                          return <tr>
+                      // let l= getFlat(e._id)
+                          return <>
+                               
+                          <tr>
                               <td>{ e.flatnumber}</td>
                               <td>{e.type }</td>                            
                               <td>{e.block }</td>
-                              <td>{"no of residents"}</td>
+                              <td>{0}</td>
                               <td onClick={() => {
                                   navigate(`/flats/${e._id}`)
                               }}>{"Details" }</td>
-                        </tr>
+                              </tr>
+                              </>
                     })  
                   }
         </tbody>
