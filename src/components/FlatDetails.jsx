@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 export const FlatDetails = () => {
   const { id } = useParams();
   //  console.log("id",id)
-  const [residents, setResidents] = useState([]);
+    const [residents, setResidents] = useState([]);
   useEffect(() => {
     getFlat();
   }, []);
@@ -30,6 +30,12 @@ export const FlatDetails = () => {
               <tbody>
                   {
                       residents.map((e) => {
+                          return <tr>
+                              <td>{e.name }</td>
+                              <td>{e.gender }</td>
+                              <td>{ e.age}</td>
+                          </tr>  
+                        
                         
                     })  
                   }
