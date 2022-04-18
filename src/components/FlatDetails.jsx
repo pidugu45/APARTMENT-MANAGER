@@ -32,11 +32,10 @@ export const FlatDetails = () => {
                       residents.map((e) => {
                           return <tr>
                               <td>{e.name }</td>
+                            
+                              <td>{e.age}</td>
                               <td>{e.gender }</td>
-                              <td>{ e.age}</td>
-                          </tr>  
-                        
-                        
+                          </tr>    
                     })  
                   }
         </tbody>
